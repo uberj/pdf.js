@@ -143,6 +143,9 @@ class AnnotationElement {
     let height = data.rect[3] - data.rect[1];
 
     container.setAttribute('data-annotation-id', data.id);
+    if (data.fieldName) {
+      container.setAttribute('data-annotation-name', data.fieldName);
+    }
 
     // Do *not* modify `data.rect`, since that will corrupt the annotation
     // position on subsequent calls to `_createContainer` (see issue 6804).
